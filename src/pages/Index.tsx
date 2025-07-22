@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import Navbar from '@/components/Navbar';
-import HeroSection from '@/components/HeroSection';
-import AboutSection from '@/components/AboutSection';
-import BlogSection from '@/components/BlogSection';
-import ContactSection from '@/components/ContactSection';
-import AuthSection from '@/components/AuthSection';
-import Footer from '@/components/Footer';
+import NavbarMorocco from '@/components/NavbarMorocco';
+import HeroMorocco from '@/components/HeroMorocco';
+import AboutMorocco from '@/components/AboutMorocco';
+import BlogMorocco from '@/components/BlogMorocco';
+import ContactMorocco from '@/components/ContactMorocco';
+import AuthMorocco from '@/components/AuthMorocco';
+import FooterMorocco from '@/components/FooterMorocco';
 
 const Index = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -13,7 +13,7 @@ const Index = () => {
 
   // Check authentication status on component mount
   useEffect(() => {
-    const savedAuth = localStorage.getItem('wanderlust-auth');
+    const savedAuth = localStorage.getItem('morocco-blog-auth');
     if (savedAuth) {
       const authData = JSON.parse(savedAuth);
       setIsAuthenticated(true);
@@ -26,7 +26,7 @@ const Index = () => {
     setUserEmail(email);
     
     // Save auth state to localStorage
-    localStorage.setItem('wanderlust-auth', JSON.stringify({ 
+    localStorage.setItem('morocco-blog-auth', JSON.stringify({ 
       email,
       timestamp: Date.now() 
     }));
@@ -37,22 +37,22 @@ const Index = () => {
     setUserEmail(null);
     
     // Remove auth state from localStorage
-    localStorage.removeItem('wanderlust-auth');
+    localStorage.removeItem('morocco-blog-auth');
   };
 
   return (
     <div className="min-h-screen bg-background">
-      <Navbar 
+      <NavbarMorocco 
         isAuthenticated={isAuthenticated} 
         onLogout={handleLogout} 
       />
       
       <main>
-        <HeroSection />
-        <AboutSection />
-        <BlogSection isAuthenticated={isAuthenticated} />
-        <ContactSection />
-        <AuthSection 
+        <HeroMorocco />
+        <AboutMorocco />
+        <BlogMorocco isAuthenticated={isAuthenticated} />
+        <ContactMorocco />
+        <AuthMorocco 
           isAuthenticated={isAuthenticated}
           onLogin={handleLogin}
           onLogout={handleLogout}
@@ -60,7 +60,7 @@ const Index = () => {
         />
       </main>
       
-      <Footer />
+      <FooterMorocco />
     </div>
   );
 };

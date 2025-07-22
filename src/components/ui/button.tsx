@@ -5,21 +5,23 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-medium transition-travel focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-medium transition-moroccan focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary-light shadow-travel hover:shadow-travel-elevated",
+        default: "bg-primary text-primary-foreground hover:bg-primary-light shadow-morocco hover:shadow-medina",
         destructive:
-          "bg-destructive text-destructive-foreground hover:bg-destructive/90 shadow-travel",
+          "bg-destructive text-destructive-foreground hover:bg-destructive/90 shadow-morocco",
         outline:
           "border border-border bg-background hover:bg-primary/10 hover:border-primary",
         secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/90 shadow-travel",
+          "bg-secondary text-secondary-foreground hover:bg-secondary/90 shadow-morocco",
         ghost: "hover:bg-primary/10 hover:text-primary-foreground",
         link: "text-secondary underline-offset-4 hover:underline hover:text-secondary/80",
-        hero: "bg-gradient-hero text-accent-foreground font-semibold shadow-travel-elevated hover:scale-105 hover:shadow-travel-elevated",
-        travel: "bg-accent text-accent-foreground hover:bg-accent/90 shadow-travel",
+        morocco: "bg-gradient-morocco text-accent-foreground font-semibold shadow-medina hover:scale-105 hover:shadow-medina",
+        atlas: "bg-gradient-atlas text-accent-foreground hover:bg-secondary/90 shadow-morocco",
+        sahara: "bg-gradient-sahara text-primary-foreground hover:bg-primary shadow-morocco",
+        medina: "bg-accent text-accent-foreground hover:bg-accent/90 shadow-morocco",
       },
       size: {
         default: "h-11 px-6 py-2",

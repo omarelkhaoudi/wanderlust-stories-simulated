@@ -3,10 +3,10 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, MessageCircle } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
-const ContactSection: React.FC = () => {
+const ContactMorocco: React.FC = () => {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: '',
@@ -45,7 +45,7 @@ const ContactSection: React.FC = () => {
       // Simulate form submission
       toast({
         title: "Message envoyé !",
-        description: "Nous vous répondrons dans les plus brefs délais.",
+        description: "Merci pour votre intérêt pour le Maroc. Nous vous répondrons bientôt !",
       });
       
       // Reset form
@@ -66,20 +66,23 @@ const ContactSection: React.FC = () => {
     {
       icon: Mail,
       title: 'Email',
-      content: 'contact@wanderlust.com',
-      description: 'Écrivez-nous à tout moment'
+      content: 'contact@maroc-decouverte.com',
+      description: 'Écrivez-nous à tout moment',
+      color: 'text-secondary'
     },
     {
       icon: Phone,
       title: 'Téléphone',
-      content: '+33 1 23 45 67 89',
-      description: 'Lun-Ven 9h-18h'
+      content: '+212 5 24 00 00 00',
+      description: 'Sam-Jeu 9h-18h (GMT+1)',
+      color: 'text-primary'
     },
     {
       icon: MapPin,
-      title: 'Adresse',
-      content: 'Paris, France',
-      description: 'Siège social'
+      title: 'Localisation',
+      content: 'Marrakech, Maroc',
+      description: 'Au cœur du royaume',
+      color: 'text-accent'
     }
   ];
 
@@ -89,21 +92,24 @@ const ContactSection: React.FC = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <div className="flex items-center justify-center mb-6">
-            <Send className="h-8 w-8 text-secondary mr-3" />
-            <span className="text-secondary font-semibold text-lg">Restons en contact</span>
+            <MessageCircle className="h-8 w-8 text-secondary mr-3 animate-float-medina" />
+            <span className="text-secondary font-semibold text-lg">💬 Restons en contact</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Contactez-nous
+          <h2 className="text-4xl md:text-6xl font-bold text-foreground mb-6 animate-fade-in-morocco">
+            Contactez
+            <span className="block bg-gradient-morocco bg-clip-text text-transparent">
+              nous
+            </span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Une question sur nos voyages ? Une suggestion d'article ? 
-            N'hésitez pas à nous contacter, nous serions ravis d'échanger avec vous !
+            Une question sur nos aventures marocaines ? Envie de partager votre propre expérience ? 
+            Besoin de conseils pour votre prochain voyage au Maroc ? Nous sommes là pour vous !
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Form */}
-          <Card className="p-8 animate-slide-up">
+          <Card className="p-8 animate-slide-caravan shadow-medina">
             <h3 className="text-2xl font-semibold text-foreground mb-6">
               Envoyez-nous un message
             </h3>
@@ -136,7 +142,7 @@ const ContactSection: React.FC = () => {
 
               <div>
                 <Textarea
-                  placeholder="Votre message"
+                  placeholder="Votre message sur le Maroc..."
                   rows={6}
                   value={formData.message}
                   onChange={(e) => handleInputChange('message', e.target.value)}
@@ -147,7 +153,7 @@ const ContactSection: React.FC = () => {
                 )}
               </div>
 
-              <Button type="submit" className="w-full" size="lg">
+              <Button type="submit" className="w-full" size="lg" variant="morocco">
                 <Send className="h-5 w-5 mr-2" />
                 Envoyer le message
               </Button>
@@ -155,17 +161,17 @@ const ContactSection: React.FC = () => {
           </Card>
 
           {/* Contact Info */}
-          <div className="animate-slide-up">
+          <div className="animate-fade-in-morocco">
             <h3 className="text-2xl font-semibold text-foreground mb-6">
               Informations de contact
             </h3>
             
             <div className="space-y-6 mb-8">
               {contactInfo.map((info, index) => (
-                <Card key={index} className="p-6 hover:shadow-travel transition-travel">
+                <Card key={index} className="p-6 hover:shadow-medina transition-moroccan hover-scale-morocco">
                   <div className="flex items-start space-x-4">
                     <div className="bg-primary/10 p-3 rounded-lg">
-                      <info.icon className="h-6 w-6 text-secondary" />
+                      <info.icon className={`h-6 w-6 ${info.color}`} />
                     </div>
                     <div>
                       <h4 className="font-semibold text-foreground text-lg mb-1">
@@ -183,15 +189,43 @@ const ContactSection: React.FC = () => {
               ))}
             </div>
 
-            <Card className="p-6 bg-gradient-to-br from-primary/5 to-secondary/5">
-              <h4 className="font-semibold text-foreground text-lg mb-3">
-                Temps de réponse
-              </h4>
-              <p className="text-muted-foreground leading-relaxed">
-                Nous nous efforçons de répondre à tous les messages dans les 24 heures. 
-                Pour les demandes urgentes, n'hésitez pas à nous appeler directement.
-              </p>
-            </Card>
+            {/* Additional Info Cards */}
+            <div className="space-y-4">
+              <Card className="p-6 bg-gradient-sahara">
+                <h4 className="font-semibold text-foreground text-lg mb-3">
+                  🕒 Temps de réponse
+                </h4>
+                <p className="text-muted-foreground leading-relaxed">
+                  Nous nous efforçons de répondre à tous les messages dans les 24 heures. 
+                  Pour les questions urgentes concernant vos voyages au Maroc, n'hésitez pas à nous appeler.
+                </p>
+              </Card>
+
+              <Card className="p-6 bg-gradient-to-br from-secondary/10 to-accent/10">
+                <h4 className="font-semibold text-foreground text-lg mb-3">
+                  🗣️ Langues parlées
+                </h4>
+                <div className="flex flex-wrap gap-2">
+                  {['Français', 'Arabe', 'Berbère', 'Anglais'].map((lang) => (
+                    <span key={lang} className="bg-background/60 px-3 py-1 rounded-full text-sm font-medium text-foreground">
+                      {lang}
+                    </span>
+                  ))}
+                </div>
+              </Card>
+            </div>
+          </div>
+        </div>
+
+        {/* Cultural Quote */}
+        <div className="mt-16 text-center">
+          <div className="inline-block p-6 bg-gradient-morocco rounded-2xl shadow-medina max-w-2xl">
+            <p className="text-lg font-medium text-accent-foreground mb-2">
+              🤝 "L'hospitalité est la vertu des grands cœurs"
+            </p>
+            <p className="text-accent-foreground/80">
+              Tradition marocaine - Votre message est le bienvenu dans notre communauté
+            </p>
           </div>
         </div>
       </div>
@@ -199,4 +233,4 @@ const ContactSection: React.FC = () => {
   );
 };
 
-export default ContactSection;
+export default ContactMorocco;

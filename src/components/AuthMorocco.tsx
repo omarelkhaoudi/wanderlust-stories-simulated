@@ -3,17 +3,17 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { LogIn, UserPlus, Eye, EyeOff, Lock, User } from 'lucide-react';
+import { LogIn, UserPlus, Eye, EyeOff, Lock, User, Star } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
-interface AuthSectionProps {
+interface AuthMoroccoProps {
   isAuthenticated: boolean;
   onLogin: (email: string) => void;
   onLogout: () => void;
   userEmail: string | null;
 }
 
-const AuthSection: React.FC<AuthSectionProps> = ({ 
+const AuthMorocco: React.FC<AuthMoroccoProps> = ({ 
   isAuthenticated, 
   onLogin, 
   onLogout, 
@@ -89,8 +89,8 @@ const AuthSection: React.FC<AuthSectionProps> = ({
       onLogin(loginData.email);
       
       toast({
-        title: "Connexion réussie !",
-        description: `Bienvenue ${loginData.email}`,
+        title: "Marhaban ! Bienvenue !",
+        description: `Connexion réussie pour ${loginData.email}`,
       });
       
       setLoginData({ email: '', password: '' });
@@ -106,8 +106,8 @@ const AuthSection: React.FC<AuthSectionProps> = ({
       onLogin(registerData.email);
       
       toast({
-        title: "Inscription réussie !",
-        description: `Bienvenue ${registerData.name} !`,
+        title: "Ahlan wa sahlan ! Bienvenue !",
+        description: `Inscription réussie pour ${registerData.name} !`,
       });
       
       setRegisterData({ name: '', email: '', password: '', confirmPassword: '' });
@@ -132,22 +132,38 @@ const AuthSection: React.FC<AuthSectionProps> = ({
     return (
       <section id="auth" className="py-20 bg-background">
         <div className="max-w-md mx-auto px-4 sm:px-6 lg:px-8">
-          <Card className="p-8 text-center animate-fade-in">
+          <Card className="p-8 text-center animate-fade-in-morocco shadow-medina bg-gradient-sahara">
             <div className="mb-6">
-              <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-20 h-20 bg-secondary/20 rounded-full flex items-center justify-center mx-auto mb-4 animate-float-medina">
                 <User className="h-10 w-10 text-secondary" />
               </div>
               <h2 className="text-2xl font-bold text-foreground mb-2">
-                Connecté
+                Marhaban ! 🇲🇦
               </h2>
               <p className="text-muted-foreground">
                 {userEmail}
               </p>
             </div>
             
-            <p className="text-muted-foreground mb-6">
-              Vous êtes maintenant connecté et pouvez gérer le contenu du blog.
-            </p>
+            <div className="mb-6 p-4 bg-background/50 rounded-lg">
+              <p className="text-muted-foreground mb-2">
+                Vous êtes maintenant connecté et pouvez :
+              </p>
+              <div className="space-y-1 text-sm">
+                <div className="flex items-center justify-center">
+                  <Star className="h-4 w-4 text-secondary mr-2" />
+                  <span>Ajouter des articles sur le Maroc</span>
+                </div>
+                <div className="flex items-center justify-center">
+                  <Star className="h-4 w-4 text-secondary mr-2" />
+                  <span>Gérer le contenu du blog</span>
+                </div>
+                <div className="flex items-center justify-center">
+                  <Star className="h-4 w-4 text-secondary mr-2" />
+                  <span>Partager vos expériences</span>
+                </div>
+              </div>
+            </div>
             
             <Button 
               variant="outline" 
@@ -167,18 +183,21 @@ const AuthSection: React.FC<AuthSectionProps> = ({
       <div className="max-w-md mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8">
           <div className="flex items-center justify-center mb-6">
-            <Lock className="h-8 w-8 text-secondary mr-3" />
-            <span className="text-secondary font-semibold text-lg">Espace membre</span>
+            <Lock className="h-8 w-8 text-secondary mr-3 animate-float-medina" />
+            <span className="text-secondary font-semibold text-lg">🔑 Espace membre</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Connexion
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4 animate-fade-in-morocco">
+            Rejoignez
+            <span className="block bg-gradient-morocco bg-clip-text text-transparent">
+              notre communauté
+            </span>
           </h2>
           <p className="text-muted-foreground">
-            Connectez-vous pour gérer le contenu du blog
+            Connectez-vous pour partager vos aventures marocaines
           </p>
         </div>
 
-        <Card className="p-6 animate-slide-up">
+        <Card className="p-6 animate-slide-caravan shadow-medina">
           <Tabs defaultValue="login" className="w-full">
             <TabsList className="grid w-full grid-cols-2 mb-6">
               <TabsTrigger value="login" className="flex items-center">
@@ -217,7 +236,7 @@ const AuthSection: React.FC<AuthSectionProps> = ({
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground hover:text-foreground"
+                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground hover:text-foreground transition-moroccan"
                   >
                     {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                   </button>
@@ -226,7 +245,7 @@ const AuthSection: React.FC<AuthSectionProps> = ({
                   )}
                 </div>
                 
-                <Button type="submit" className="w-full">
+                <Button type="submit" className="w-full" variant="morocco">
                   <LogIn className="h-4 w-4 mr-2" />
                   Se connecter
                 </Button>
@@ -271,7 +290,7 @@ const AuthSection: React.FC<AuthSectionProps> = ({
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground hover:text-foreground"
+                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground hover:text-foreground transition-moroccan"
                   >
                     {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                   </button>
@@ -291,7 +310,7 @@ const AuthSection: React.FC<AuthSectionProps> = ({
                   <button
                     type="button"
                     onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground hover:text-foreground"
+                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground hover:text-foreground transition-moroccan"
                   >
                     {showConfirmPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                   </button>
@@ -300,7 +319,7 @@ const AuthSection: React.FC<AuthSectionProps> = ({
                   )}
                 </div>
                 
-                <Button type="submit" className="w-full">
+                <Button type="submit" className="w-full" variant="atlas">
                   <UserPlus className="h-4 w-4 mr-2" />
                   S'inscrire
                 </Button>
@@ -308,9 +327,16 @@ const AuthSection: React.FC<AuthSectionProps> = ({
             </TabsContent>
           </Tabs>
         </Card>
+
+        {/* Cultural Welcome */}
+        <div className="text-center mt-6">
+          <p className="text-sm text-muted-foreground">
+            🌟 Rejoignez notre famille de passionnés du Maroc
+          </p>
+        </div>
       </div>
     </section>
   );
 };
 
-export default AuthSection;
+export default AuthMorocco;

@@ -2,54 +2,55 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Wanderlust Travel Blog Design System - Inspired by coral pink and ocean teal */
+/* Blog de Voyage au Maroc - Design System inspiré des couleurs marocaines */
 
 @layer base {
   :root {
-    /* Travel Blog Color Palette */
+    /* Palette Maroc - Couleurs chaudes et authentiques */
     --background: 0 0% 100%;
-    --foreground: 210 20% 15%;
+    --foreground: 215 55% 15%;
 
-    /* Card system with coral tints */
+    /* Card system avec tons terreux */
     --card: 0 0% 100%;
-    --card-foreground: 210 20% 15%;
+    --card-foreground: 215 55% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 210 20% 15%;
+    --popover-foreground: 215 55% 15%;
 
-    /* Coral pink theme */
-    --primary: 0 47% 85%; /* Coral pink #ffcbcb equivalent */
-    --primary-foreground: 210 20% 15%;
-    --primary-light: 0 47% 90%; /* Lighter coral #ffb5b5 equivalent */
+    /* Rose corail marocain */
+    --primary: 0 47% 85%; /* #ffcbcb equivalent */
+    --primary-foreground: 215 55% 15%;
+    --primary-light: 0 47% 90%; /* #ffb5b5 equivalent */
 
-    /* Ocean teal theme */
-    --secondary: 200 35% 45%; /* Ocean teal #407088 equivalent */
+    /* Bleu océan Atlas */
+    --secondary: 200 35% 45%; /* #407088 equivalent */
     --secondary-foreground: 0 0% 100%;
 
-    /* Deep navy accent */
-    --accent: 215 55% 24%; /* Deep navy #132743 equivalent */
+    /* Bleu nuit berbère */
+    --accent: 215 55% 24%; /* #132743 equivalent */
     --accent-foreground: 0 0% 100%;
 
-    /* Muted tones */
-    --muted: 0 47% 96%;
-    --muted-foreground: 210 15% 55%;
+    /* Tons neutres sable */
+    --muted: 35 25% 96%;
+    --muted-foreground: 215 15% 55%;
 
-    /* Status colors */
+    /* Couleurs status */
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    /* Borders and inputs */
-    --border: 0 15% 92%;
-    --input: 0 15% 95%;
+    /* Bordures et inputs */
+    --border: 35 15% 92%;
+    --input: 35 15% 95%;
     --ring: 200 35% 45%;
 
-    /* Travel-specific design tokens */
-    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
-    --gradient-card: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
-    --shadow-soft: 0 4px 20px -2px hsl(var(--primary) / 0.15);
-    --shadow-elevated: 0 10px 40px -10px hsl(var(--secondary) / 0.25);
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    /* Design tokens Maroc */
+    --gradient-morocco: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+    --gradient-atlas: linear-gradient(180deg, hsl(var(--secondary)), hsl(var(--accent)));
+    --gradient-sahara: linear-gradient(45deg, hsl(var(--primary-light)), hsl(var(--primary)));
+    --shadow-morocco: 0 4px 20px -2px hsl(var(--primary) / 0.2);
+    --shadow-medina: 0 10px 40px -10px hsl(var(--accent) / 0.3);
+    --transition-moroccan: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-caravan: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --radius: 0.5rem;
 
@@ -71,34 +72,34 @@
   }
 
   .dark {
-    /* Dark mode with warm travel vibes */
-    --background: 215 55% 12%;
+    /* Mode sombre avec ambiance marocaine nocturne */
+    --background: 215 55% 8%;
     --foreground: 0 47% 95%;
 
-    --card: 215 50% 15%;
+    --card: 215 50% 12%;
     --card-foreground: 0 47% 95%;
 
-    --popover: 215 50% 15%;
+    --popover: 215 50% 12%;
     --popover-foreground: 0 47% 95%;
 
     --primary: 0 47% 75%;
-    --primary-foreground: 215 55% 12%;
+    --primary-foreground: 215 55% 8%;
     --primary-light: 0 47% 80%;
 
     --secondary: 200 45% 60%;
-    --secondary-foreground: 215 55% 12%;
+    --secondary-foreground: 215 55% 8%;
 
     --accent: 0 47% 85%;
-    --accent-foreground: 215 55% 12%;
+    --accent-foreground: 215 55% 8%;
 
-    --muted: 215 40% 20%;
+    --muted: 215 40% 15%;
     --muted-foreground: 0 15% 70%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 215 30% 25%;
-    --input: 215 30% 20%;
+    --border: 215 30% 20%;
+    --input: 215 30% 18%;
     --ring: 200 45% 60%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -126,73 +127,97 @@
   }
 }
 
-/* Custom animations and utilities */
+/* Animations et utilitaires Maroc */
 @layer utilities {
-  .animate-fade-in {
-    animation: fadeIn 0.6s ease-out;
+  .animate-fade-in-morocco {
+    animation: fadeInMorocco 0.8s ease-out;
   }
 
-  .animate-slide-up {
-    animation: slideUp 0.8s ease-out;
+  .animate-slide-caravan {
+    animation: slideCaravan 1s ease-out;
   }
 
-  .animate-bounce-in {
-    animation: bounceIn 0.6s var(--transition-bounce);
+  .animate-float-medina {
+    animation: floatMedina 3s ease-in-out infinite;
   }
 
-  .bg-gradient-hero {
-    background: var(--gradient-hero);
+  .bg-gradient-morocco {
+    background: var(--gradient-morocco);
   }
 
-  .bg-gradient-card {
-    background: var(--gradient-card);
+  .bg-gradient-atlas {
+    background: var(--gradient-atlas);
   }
 
-  .shadow-travel {
-    box-shadow: var(--shadow-soft);
+  .bg-gradient-sahara {
+    background: var(--gradient-sahara);
   }
 
-  .shadow-travel-elevated {
-    box-shadow: var(--shadow-elevated);
+  .shadow-morocco {
+    box-shadow: var(--shadow-morocco);
   }
 
-  .transition-travel {
-    transition: var(--transition-smooth);
+  .shadow-medina {
+    box-shadow: var(--shadow-medina);
+  }
+
+  .transition-moroccan {
+    transition: var(--transition-moroccan);
+  }
+
+  .hover-scale-morocco {
+    @apply transition-moroccan hover:scale-105 hover:shadow-medina;
   }
 }
 
-@keyframes fadeIn {
+@keyframes fadeInMorocco {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px) scale(0.95);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 }
 
-@keyframes slideUp {
+@keyframes slideCaravan {
   from {
     opacity: 0;
-    transform: translateY(40px);
+    transform: translateX(-50px) rotate(-2deg);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0) rotate(0deg);
   }
 }
 
-@keyframes bounceIn {
-  0% {
-    opacity: 0;
-    transform: scale(0.8);
+@keyframes floatMedina {
+  0%, 100% {
+    transform: translateY(0px);
   }
   50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Scroll animations spécifiques */
+@keyframes moroccanPulse {
+  0%, 100% {
+    opacity: 0.7;
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 1;
     transform: scale(1.05);
   }
-  100% {
-    opacity: 1;
-    transform: scale(1);
+}
+
+@keyframes atlasGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px hsl(var(--secondary) / 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px hsl(var(--secondary) / 0.6);
   }
 }
